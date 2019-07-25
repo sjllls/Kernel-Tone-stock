@@ -2099,7 +2099,6 @@ static int __init cpufreq_interactive_init(void)
 #ifndef CONFIG_SCHED_HMP
 	struct sched_param param = { .sched_priority = MAX_RT_PRIO-1 };
 #endif
-	int ret = 0;
 
 	mutex_init(&gov_lock);
 	mutex_init(&sched_lock);
@@ -2120,12 +2119,7 @@ static int __init cpufreq_interactive_init(void)
 	wake_up_process_no_notif(speedchange_task);
 #endif
 
-	ret = cpufreq_register_governor(&cpufreq_gov_interactive);
-	if (ret) {
-		kthread_stop(speedchange_task);
-		put_task_struct(speedchange_task);
-	}
-	return ret;
+	return cpufreq_register_governor(&cpufreq_gov_interactive);
 }
 
 #ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE
