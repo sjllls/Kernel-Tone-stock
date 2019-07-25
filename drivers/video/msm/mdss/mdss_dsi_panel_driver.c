@@ -50,8 +50,8 @@ static struct fps_data fpsd, vpsd;
 #define ADC_RNG_MIN		0
 #define ADC_RNG_MAX		1
 
-#define CHANGE_FPS_MIN 36
-#define CHANGE_FPS_MAX 63
+#define CHANGE_FPS_MIN 60
+#define CHANGE_FPS_MAX 105
 
 #define NODE_OF_HYBRID "/soc/dsi_panel_pwr_supply_hybrid_incell"
 #define NODE_OF_FULL "/soc/dsi_panel_pwr_supply_full_incell"
