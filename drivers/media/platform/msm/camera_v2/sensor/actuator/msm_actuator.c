@@ -1304,7 +1304,6 @@ static int32_t msm_actuator_set_param(struct msm_actuator_ctrl_t *a_ctrl,
 		pr_err("Error copying region_params\n");
 		return -EFAULT;
 	}
-
 	if (a_ctrl->act_device_type == MSM_CAMERA_PLATFORM_DEVICE) {
 		cci_client = a_ctrl->i2c_client.cci_client;
 		cci_client->sid =
@@ -2066,8 +2065,6 @@ static int __init msm_actuator_init_module(void)
 	int32_t rc = 0;
 	CDBG("Enter\n");
 	rc = platform_driver_register(&msm_actuator_platform_driver);
-	if (!rc)
-		return rc;
 
 	CDBG("%s:%d rc %d\n", __func__, __LINE__, rc);
 	return i2c_add_driver(&msm_actuator_i2c_driver);
